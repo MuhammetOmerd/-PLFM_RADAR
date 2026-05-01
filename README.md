@@ -1,35 +1,35 @@
-# PLFM RADAR System
-**Author & Lead Hardware Designer:** muham
+# PLFM RADAR Sistemi
+**Yazar ve Baş Donanım Tasarımcısı:** muham
 
-## Project Overview
-This repository contains the complete hardware design, system architecture, and electromagnetic simulations for a custom high-frequency PLFM (Phase-Locked Frequency Modulation) Radar system. Designed from scratch, the system operates in the X-band (around 10.5 GHz) and encompasses all stages from initial RF/Microwave simulations to final PCB layout and Gerber production files.
+## Projeye Genel Bakış
+Bu depo, özel yüksek frekanslı bir PLFM (Faz Kilitli Frekans Modülasyonu - Phase-Locked Frequency Modulation) Radar sistemi için eksiksiz donanım tasarımını, sistem mimarisini ve elektromanyetik simülasyonları içerir. Sıfırdan tasarlanan bu sistem X-bandında (yaklaşık 10.5 GHz) çalışmaktadır ve ilk RF/Mikrodalga simülasyonlarından nihai PCB dizilimi ve Gerber üretim dosyalarına kadar tüm aşamaları kapsamaktadır.
 
-## Key Subsystems and Architecture
-The radar system is highly modular and divided into several dedicated boards to minimize noise and improve RF performance:
+## Temel Alt Sistemler ve Mimari
+Radar sistemi, gürültüyü en aza indirmek ve RF performansını artırmak için son derece modüler bir yapıda tasarlanmış olup birkaç özel karta bölünmüştür:
 
-1. **Main Board:** Handles the core data processing, ADC/DAC conversion, and overall system control.
-2. **Frequency Synthesizer Board:** Responsible for generating precise chirp signals and local oscillator (LO) frequencies for the RF mixer.
-3. **Power Amplifier (PA) Board:** Amplifies the modulated RF signal for the transmit antenna.
-4. **Power Management Board:** Distributes clean, low-noise power to all sensitive RF and digital components.
-5. **Antennas:** Custom-designed 10.5 GHz quartz slotted waveguide antennas optimized for high directivity.
+1. **Ana Kart (Main Board):** Temel veri işleme, ADC/DAC (Analog-Dijital / Dijital-Analog) dönüşümleri ve genel sistem kontrolünü yönetir.
+2. **Frekans Sentezleyici Kartı (Frequency Synthesizer Board):** RF mikser için hassas chirp sinyalleri ve lokal osilatör (LO) frekansları üretmekten sorumludur.
+3. **Güç Yükseltici Kartı (Power Amplifier - PA Board):** İletim anteni için modüle edilmiş RF sinyalini yükseltir.
+4. **Güç Yönetim Kartı (Power Management Board):** Tüm hassas RF ve dijital bileşenlere temiz, düşük gürültülü güç dağıtımı sağlar.
+5. **Antenler:** Yüksek yönlülük (directivity) için özel olarak tasarlanmış 10.5 GHz quartz yarıklı dalga kılavuzu (slotted waveguide) antenleri.
 
-## Tools & Methodologies Used
-- **PCB Design & Schematics:** Advanced multilayer stacks with precise impedance matching (RO4350B substrates).
-- **EM Simulations:** openEMS for 3D electromagnetic simulations of the slotted waveguide and via fencing.
-- **Signal Processing:** Python (NumPy, Pandas, Matplotlib) for baseband analysis, DAC reconstruction, and chirp generation.
+## Kullanılan Araçlar ve Yöntemler
+- **PCB Tasarımı ve Şemalar:** Hassas empedans uyumuna sahip gelişmiş çok katmanlı yığınlar (RO4350B tabanlar).
+- **EM Simülasyonları:** Yarıklı dalga kılavuzu ve via çit (via fencing) tasarımlarının 3D elektromanyetik simülasyonları için openEMS kullanılmıştır.
+- **Sinyal İşleme:** Temel bant analizi, DAC yeniden yapılandırması ve chirp sinyali üretimi için Python (NumPy, Pandas, Matplotlib).
 
-## Directory Structure
-- `1_Project_Description/`: Detailed system requirements and technical specifications.
-- `2_Functional Diagram & Interconnection Matrices/`: System-level block diagrams and pin mappings.
-- `3_Power Management/`: Power tree calculations and voltage regulator designs.
-- `4_Schematics and Boards Layout/`: Complete circuit schematics, board layouts, and manufacturing files (Gerbers, BOM, Pick & Place).
-- `5_Simulations/`: Scripts and data for IF filters, Anti-Aliasing filters, and 3D antenna simulations.
+## Dizin Yapısı (Klasörler)
+- `1_Project_Description/`: Detaylı sistem gereksinimleri ve teknik özellikler.
+- `2_Functional Diagram & Interconnection Matrices/`: Sistem düzeyinde blok şemalar ve pin bağlantı matrisleri.
+- `3_Power Management/`: Güç ağacı hesaplamaları ve voltaj regülatörü tasarımları.
+- `4_Schematics and Boards Layout/`: Eksiksiz devre şemaları, kart dizilimleri ve üretim dosyaları (Gerber, BOM, Pick & Place).
+- `5_Simulations/`: IF (Ara Frekans) filtreleri, Örtüşme Önleyici (Anti-Aliasing) filtreler ve 3D anten simülasyonları için veri ve kod dosyaları.
 
-## Running the Simulations
-A Python virtual environment is configured to run the signal processing simulations. To generate a multi-ramp DAC chirp signal output, run:
+## Simülasyonların Çalıştırılması
+Sinyal işleme simülasyonlarını sorunsuz çalıştırmak için bir Python sanal ortamı (`.venv`) yapılandırılmıştır. Çoklu rampa DAC chirp sinyali çıktısı üretmek için aşağıdaki komutu çalıştırabilirsiniz:
 ```bash
 python 5_Simulations/DAC_ReconstructionFilter/Generate_ChirpcsvFile.py
 ```
 
 ---
-*Designed and developed entirely on this workstation by muham.*
+*Tüm sistem tamamen bu bilgisayarda muham tarafından tasarlanmış ve geliştirilmiştir.*
