@@ -122,7 +122,7 @@ if __name__ == "__main__":
         fmin=10e6,
         Duration=6e-6,              # try longer duration
         filename="multi_ramp_stairs.csv",
-        show_plot=True,
+        show_plot=False,
         save_plot_png=None,
         plot_window=None,             # None => full duration
         hold_per_sample=1             # set >1 to make CSV itself staircase (ZOH-expanded)
